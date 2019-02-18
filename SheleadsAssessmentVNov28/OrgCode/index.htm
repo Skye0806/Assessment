@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="gr__sheleadsgame_com" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="assets/bootstrap.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/animate.css">
+		<link rel="stylesheet" type="text/css" href="assets/styles.css">
+		<script src="assets/script.js"></script>
+		<script src="assets/index.js"></script>
+	</head>
+
+	<body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+		<div id="screen0" class="screen inactive">
+				<div class="screen_inner_container">
+					<h3 class="entry_title">
+					Enter Organization Code
+					</h3>
+					<input id="oid" style="display:block;margin: 25px auto;" placeholder="" onkeyup="right_characters(this,2);" />
+					<button id="button1" class="button" onclick="checkusername(this);">Continue</button>
+				</div>
+			</div>
+		<div id="screen1" class="screen inactive">
+				<div class="screen_inner_container">
+				<h3 class="entry_title">
+				Lorem Impsum instructions
+				</h3>
+				<button id="button0" class="button_begin" onclick="getNextScreen(this);">Begin!</button>
+				</div>
+		</div>				
+		<div id="screen2" class="screen inactive">
+			<div class="screen_inner_container">
+			<div class="screen_content">
+				<h3 class="quiz_question">
+					During STEM camp activities, I felt:
+				</h3>
+				<textarea class="reponseInput" onkeyup="right_characters(this,2);" ></textarea>
+			</div>
+			<div class="two_options_container">
+			<button id="button1" class="button back" onclick="getPrevScreen(this);">Back</button>
+			<button id="button1" class="button" onclick="getNextScreen(this);">Continue</button>
+			</div>
+			</div>
+		</div>
+				
+		<div id="screen3" class="screen inactive">
+			<div class="screen_inner_container">
+			<div class="screen_content">
+				<h3 class="quiz_question">
+					If you could work in any job listed below.</br>
+					Which would you choose?
+				</h3>
+				<div class="options options_multiple_choice options_buttons">
+					<ul>
+						<li onclick="getNextScreen(this);" >App designer</li>
+						<li onclick="getNextScreen(this);" >Teacher</li>
+					</ul>
+					<ul>
+						<li  onclick="getNextScreen(this);">Doctor</li>
+						<li  onclick="getNextScreen(this);">Game Developer</li>
+					</ul>
+				</div>
+			</div>
+			<button id="button1" class="button" onclick="getPrevScreen(this);">Back</button>
+			</div>
+		</div>
+
+		<div id="screen4" class="screen inactive">
+			<div class="screen_inner_container">
+			<div class="screen_content">
+				<h3 class="quiz_question">
+					Would you attend SuperNova STEM camp again?
+				</h3>
+				<div class="options options_yes_no">
+					<ul>
+						<li  onclick="getNextScreen(this);" >Yes</li>
+						<li  onclick="getNextScreen(this);" >No</li>
+					</ul>
+				</div>
+			</div>
+			<button id="button1" class="button" onclick="getPrevScreen(this);">Back</button>
+			</div>
+		</div>
+		
+		<div id="screen5" class="screen inactive">
+		<div class="screen_inner_container">
+			<div class="screen_content">
+				<h3 class="quiz_question">
+					I would go to the STEM camp at SheLeads again
+				</h3>
+				<p class="instructions">choose a face that best describers how you feel</p>
+			<div class="options options_multiple_choice options_imgs">
+				<ul>
+				<li  onclick="getNextScreen(this);" > <img data-value="Satisfied" src="assets/images/smiley1.png"/>	</li>
+				<li  onclick="getNextScreen(this);" ><img data-value="Neutral"  src="assets/images/smiley2.png"/>	</li>
+				<li  onclick="getNextScreen(this);"><img data-value="Unhappy" src="assets/images/smiley3.png"/>	</li>
+				</ul>
+			</div>
+			</div>
+			<button id="button1" class="button" onclick="getPrevScreen(this);" >Back</button>
+			</div>
+		</div> 
+		<div id="screen6" class="thankyouscreen">
+		<div class="screen_inner_container">
+				<h3> Thank you! :) </br> </br>
+				Your Assessment has been submitted.</h3>
+				</div>
+		</div> 		
+		<div id="balls" class="balls">
+			<img id="ball_1" class="ball ball_1 animated zoomIn" src="assets/images/oval-43x.png" style="visibility: visible; animation-duration: 1s; animation-delay: 1.1s;">
+			<img id="ball_2" class="ball ball_2 animated zoomIn" src="assets/images/oval-43x.png" style="visibility: visible; animation-duration: 1.1s; animation-delay: 1.15s;">
+			<img id="ball_3" class="ball ball_3 animated zoomIn" src="assets/images/oval-4-copy3x.png" style="visibility: visible; animation-duration: 1.8s; animation-delay: 1.2s;">
+			<img id="ball_4" class="ball ball_4 animated zoomIn" src="assets/images/oval-53x.png" style="visibility: visible; animation-duration: 1.8s; animation-delay: 1.2s;">
+		</div>
+	
+	
+	<script language="javascript" type="text/javascript">
+		$('body').append('<div style="" id="loadingDiv"><div class="bounceball text wrap"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOADING</div></div>');
+		$(window).on('load', function(){
+		  setTimeout(removeLoader, 1000); //wait for page load PLUS 0.7 seconds.
+		});
+		function removeLoader(){
+
+		    $( "#loadingDiv" ).fadeOut(500, function() {
+		      // fadeOut complete. Remove the loading div
+		      $( "#loadingDiv" ).remove(); //makes page more lightweight
+			  			   $('#screen0').addClass('active');
+	   		 	   $('#screen0').removeClass('inactive');
+		  });
+		}
+
+	</script>
+
+</body><!-- ********************************[ JS for Loading page ] ******************************** -->
